@@ -54,8 +54,8 @@ def send_verification_email(all_info):
     email = all_info['email']
     token = s.dumps(all_info, salt="verificaion")
     msg = Message('Confirm Email', recipients=[email])
-    link = url_for('verify', token=token, _external=True)
-    msg.body = f'Your verification link is {link}'
+    link = url_for('verify', token=token)
+    msg.body = f'Your verification link is http://13.50.73.200:5000{link}'
     mail.send(msg)
 
 
